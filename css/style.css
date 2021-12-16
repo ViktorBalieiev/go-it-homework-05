@@ -103,6 +103,25 @@ a {
 .current {
   color: var(--hover-text-color);
 }
+.navigation-item{
+  position: relative;
+}
+
+.navigation-item::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background: #2196F3;
+  border-radius: 2px;
+  opacity: 0;
+
+}
+.navigation-item:hover::after {
+  opacity: 1;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+ }
 
 .contacts-list {
   font-weight: 500;
@@ -111,7 +130,6 @@ a {
   letter-spacing: 0.02em;
   display: flex;
   margin-left: auto;
-
 }
 .contact-adress:hover {
   color: var(--hover-text-color);
@@ -238,8 +256,36 @@ justify-content: center;
 .type-activity {
   display: flex;
 }
+
+
 .title-img:not(:last-child){
   margin-right: 30px;
+}
+
+.title-img{
+  position: relative;
+}
+
+.drop-activity {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(47, 48, 58, 0.8);
+}
+.drop-title{
+  text-align: center;
+padding-top: 27px;
+padding-bottom: 27px;
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 1.14;
+text-align: center;
+letter-spacing: 0.03em;
+text-transform: uppercase;
+
+color: #FFFFFF;
 }
 .section-activity {
   display: block;
@@ -525,7 +571,32 @@ color: #212121;
   margin-right: 30px;
   margin-bottom: 30px;
 }
+.overlay{
+  position: relative;
+}
+.overlay-text {
+width: 100%;
+height: 100%;
+  position: absolute;
+  top: 0;
+  font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 1.56;
+text-align: center;
+align-items: center;
+justify-content: center;
+padding-top: 63px;
+letter-spacing: 0.03em;
 
+color: #FFFFFF;
+background: rgba(33, 150, 243, 0.9);
+opacity: 0;
+}
+.overlay-text:hover{
+  opacity: 1;
+}
 .portfilio-block {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -583,3 +654,39 @@ margin-right: 10px;
     display: flex;
     align-items: baseline;
   }
+
+
+  .is-hidden {
+    opacity: 0;
+  pointer-events: none;
+  }
+.backdrop {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.2);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  background: rgba(0, 0, 0, 0.2);
+}
+.modal {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50% , -50%);
+
+min-width: 528px;
+min-height: 581px;
+background: #FFFFFF;
+border-radius: 4px;
+box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.button-open {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #FFFFFF;
+  right: 8px;
+  top: 8px;
+}
